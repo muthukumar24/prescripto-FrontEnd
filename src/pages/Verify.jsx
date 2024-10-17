@@ -17,7 +17,7 @@ const Verify = () => {
 
     const verifyStripe = async () => {
         try {
-            const { data } = await axios.post('http://localhost:4000/api/user/verifyStripe', { success, appointmentId }, { headers: {token} })
+            const { data } = await axios.post('https://prescripto-backend-1af3.onrender.com/api/user/verifyStripe', { success, appointmentId }, { headers: {token} })
             if(data.success){
                 toast.success(data.message);
             }

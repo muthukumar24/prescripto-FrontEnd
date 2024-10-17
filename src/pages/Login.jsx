@@ -23,7 +23,7 @@ const Login = () => {
     try {
       if (state === 'Sign Up') {
 
-        const { data } = await axios.post('http://localhost:4000/api/user/register', { name, email, password })
+        const { data } = await axios.post('https://prescripto-backend-1af3.onrender.com/api/user/register', { name, email, password })
   
         if (data.success) {
           localStorage.setItem('token', data.token)
@@ -34,7 +34,7 @@ const Login = () => {
   
       } else {
   
-        const { data } = await axios.post('http://localhost:4000/api/user/login', { email, password })
+        const { data } = await axios.post('https://prescripto-backend-1af3.onrender.com/api/user/login', { email, password })
   
         if (data.success) {
           localStorage.setItem('token', data.token)

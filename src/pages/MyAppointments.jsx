@@ -23,7 +23,7 @@ const MyAppointments = () => {
     const getUserAppointments = async () => {
         try {
 
-            const { data } = await axios.get('http://localhost:4000/api/user/appointments', { headers: { token } })
+            const { data } = await axios.get('https://prescripto-backend-1af3.onrender.com/api/user/appointments', { headers: { token } })
             setAppointments(data.appointments.reverse())
 
         } catch (error) {
@@ -37,7 +37,7 @@ const MyAppointments = () => {
 
         try {
 
-            const { data } = await axios.post('http://localhost:4000/api/user/cancel-appointment', { appointmentId }, { headers: { token } })
+            const { data } = await axios.post('https://prescripto-backend-1af3.onrender.com/api/user/cancel-appointment', { appointmentId }, { headers: { token } })
 
             if (data.success) {
                 toast.success(data.message)
@@ -56,7 +56,7 @@ const MyAppointments = () => {
     // Function to make payment using stripe
     const appointmentStripe = async (appointmentId) => {
         try {
-            const { data } = await axios.post('http://localhost:4000/api/user/payment-stripe', { appointmentId }, { headers: { token } })
+            const { data } = await axios.post('https://prescripto-backend-1af3.onrender.com/api/user/payment-stripe', { appointmentId }, { headers: { token } })
             if (data.success) {
                 const { session_url } = data
                 window.location.replace(session_url)

@@ -26,7 +26,7 @@ const MyProfile = () => {
 
       image && formData.append('image', image)
 
-      const { data } = await axios.post('http://localhost:4000/api/user/update-profile', formData, {headers: {token}});
+      const { data } = await axios.post('https://prescripto-backend-1af3.onrender.com/api/user/update-profile', formData, {headers: {token}});
 
       if(data.success){
         toast.success(data.message);
